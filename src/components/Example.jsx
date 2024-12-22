@@ -526,80 +526,112 @@
 
 // export default CheckboxChecked;
 
-import { useId, useState, useEffect } from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
+// import { useId, useState, useEffect } from "react";
+// import { Formik, Form, Field, ErrorMessage } from "formik";
+// import * as Yup from "yup";
 
-const FeedbackSchema = Yup.object().shape({
-  username: Yup.string()
-    .min(2, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Required"),
-  email: Yup.string().email("Must be a valid email!").required("Required"),
-  message: Yup.string()
-    .min(3, "Too short")
-    .max(256, "Too long")
-    .required("Required"),
-  level: Yup.string().oneOf(["good", "neutral", "bad"]).required("Required"),
-});
+// const FeedbackSchema = Yup.object().shape({
+//   username: Yup.string()
+//     .min(2, "Too Short!")
+//     .max(50, "Too Long!")
+//     .required("Required"),
+//   email: Yup.string().email("Must be a valid email!").required("Required"),
+//   message: Yup.string()
+//     .min(3, "Too short")
+//     .max(256, "Too long")
+//     .required("Required"),
+//   level: Yup.string().oneOf(["good", "neutral", "bad"]).required("Required"),
+//   picked: Yup.string().oneOf(["One", "Two"]).required("Required"),
+//   cash: Yup.string()
+//     .matches()
+//     .min(2, "Not correct")
+//     .max(10, "So many")
+//     .required("Required"),
+// });
 
-const initialValues = {
-  username: "",
-  email: "",
-  message: "",
-  level: "good",
-};
+// const initialValues = {
+//   username: "",
+//   email: "",
+//   message: "",
+//   level: "good",
+//   picked: "",
+//   cash: "",
+// };
 
-const FeedbackForm = () => {
-  const nameFieldId = useId();
-  const emailFieldId = useId();
-  const msgFieldId = useId();
-  const levelFieldId = useId();
+// const FeedbackForm = () => {
+//   const nameFieldId = useId();
+//   const emailFieldId = useId();
+//   const msgFieldId = useId();
+//   const levelFieldId = useId();
 
-  const handleSubmit = (values, actions) => {
-    console.log(values);
-    actions.resetForm();
-  };
+//   const handleSubmit = (values, actions) => {
+//     console.log(values);
+//     actions.resetForm();
+//   };
 
-  return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-      validationSchema={FeedbackSchema}
-    >
-      <Form>
-        <div>
-          <label htmlFor={nameFieldId}>Username</label>
-          <Field type="text" name="username" id={nameFieldId} />
-          <ErrorMessage name="username" component="span" />
-        </div>
+//   return (
+//     <Formik
+//       initialValues={initialValues}
+//       onSubmit={handleSubmit}
+//       validationSchema={FeedbackSchema}
+//     >
+//       <Form>
+//         <div>
+//           <label htmlFor={nameFieldId}>Username</label>
+//           <Field type="text" name="username" id={nameFieldId} />
+//           <ErrorMessage name="username" component="span" />
+//         </div>
 
-        <div>
-          <label htmlFor={emailFieldId}>Email</label>
-          <Field type="email" name="email" id={emailFieldId} />
-          <ErrorMessage name="email" component="span" />
-        </div>
+//         <div>
+//           <label htmlFor={emailFieldId}>Email</label>
+//           <Field type="email" name="email" id={emailFieldId} />
+//           <ErrorMessage name="email" component="span" />
+//         </div>
 
-        <div>
-          <label htmlFor={msgFieldId}>Message</label>
-          <Field as="textarea" name="message" id={msgFieldId} rows="5" />
-          <ErrorMessage name="message" component="span" />
-        </div>
+//         <div>
+//           <label htmlFor={msgFieldId}>Message</label>
+//           <Field as="textarea" name="message" id={msgFieldId} rows="5" />
+//           <ErrorMessage name="message" component="span" />
+//         </div>
 
-        <div>
-          <label htmlFor={levelFieldId}>Service satisfaction level</label>
-          <Field as="select" name="level" id={levelFieldId}>
-            <option value="good">Good</option>
-            <option value="neutral">Neutral</option>
-            <option value="bad">Bad</option>
-          </Field>
-          <ErrorMessage name="level" component="span" />
-        </div>
+//         <div>
+//           <label htmlFor={levelFieldId}>Service satisfaction level</label>
+//           <Field as="select" name="level" id={levelFieldId}>
+//             <option value="good">Good</option>
+//             <option value="neutral">Neutral</option>
+//             <option value="bad">Bad</option>
+//           </Field>
 
-        <button type="submit">Submit</button>
-      </Form>
-    </Formik>
-  );
-};
+//           <ErrorMessage name="level" component="span" />
+//         </div>
 
-export default FeedbackForm;
+//         <div>
+//           <label>
+//             <Field type="radio" name="picked" value="One" />
+//             One
+//           </label>
+
+//           <label>
+//             <Field type="radio" name="picked" value="Two" />
+//             Two
+//           </label>
+
+//           <ErrorMessage
+//             name="picked"
+//             component="span"
+//             style={{ color: "red", textDecoration: "uppercase" }}
+//           />
+//         </div>
+
+//         <div>
+//           <Field type="number" name="cash" />
+//           <ErrorMessage name="cash" component="div" />
+//         </div>
+
+//         <button type="submit">Submit</button>
+//       </Form>
+//     </Formik>
+//   );
+// };
+
+// export default FeedbackForm;
