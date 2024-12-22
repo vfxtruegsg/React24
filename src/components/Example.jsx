@@ -556,45 +556,6 @@
 // };
 
 // export default FeedbackForm;
-import css from "./App.module.css";
-import { useId, useState } from "react";
-
-const TestInput = () => {
-  const inputField = useId();
-
-  const [password, setPassword] = useState("");
-
-  const handleChange = (evt) => {
-    setPassword(() => {
-      const value = evt.target.value;
-      const passwordArray = value.split("");
-      for (let i = 0; i <= passwordArray.length - 1; i++) {
-        passwordArray[i] = "*";
-        console.log(passwordArray);
-      }
-
-      return passwordArray.join("");
-    });
-  };
-
-  return (
-    <form className={css["form"]}>
-      <div className={css["containerForm"]}>
-        <label htmlFor={inputField}>Password</label>
-        <input
-          value={password}
-          onChange={handleChange}
-          className={css["input"]}
-          type="text"
-          placeholder="Enter password"
-          id={inputField}
-        />
-      </div>
-    </form>
-  );
-};
-
-export default TestInput;
 
 // import { Formik, Form, Field, ErrorMessage } from "formik";
 // import * as Yup from "yup";
@@ -704,3 +665,43 @@ export default TestInput;
 // };
 
 // export default FeedbackForm;
+
+import css from "./App.module.css";
+import { useId, useState } from "react";
+
+const TestInput = () => {
+  const inputField = useId();
+
+  const [password, setPassword] = useState("");
+
+  const handleChange = (evt) => {
+    setPassword(() => {
+      const value = evt.target.value;
+      const passwordArray = value.split("");
+      for (let i = 0; i <= passwordArray.length - 1; i++) {
+        passwordArray[i] = "*";
+        console.log(passwordArray);
+      }
+
+      return passwordArray.join("");
+    });
+  };
+
+  return (
+    <form className={css["form"]}>
+      <div className={css["containerForm"]}>
+        <label htmlFor={inputField}>Password</label>
+        <input
+          value={password}
+          onChange={handleChange}
+          className={css["input"]}
+          type="text"
+          placeholder="Enter password"
+          id={inputField}
+        />
+      </div>
+    </form>
+  );
+};
+
+export default TestInput;
