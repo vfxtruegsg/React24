@@ -526,32 +526,71 @@
 
 // export default CheckboxChecked;
 
-import { useId, useState, useEffect } from "react";
-import { Formik, Form, Field } from "formik";
+// import { useId, useState, useEffect } from "react";
+// import { Formik, Form, Field } from "formik";
 
-const FeedbackForm = () => {
-  const initialValues = {
-    username: "",
-    email: "",
-    comments: "",
-  };
+// const FeedbackForm = () => {
+//   const initialValues = {
+//     username: "",
+//     email: "",
+//     comments: "",
+//   };
 
-  const submitForm = (values, actions) => {
-    console.log(values);
+//   const submitForm = (values, actions) => {
+//     console.log(values);
 
-    actions.resetForm();
+//     actions.resetForm();
+//   };
+
+//   return (
+//     <Formik initialValues={initialValues} onSubmit={submitForm}>
+//       <Form>
+//         <Field type="text" name="username" />
+//         <Field type="email" name="email" />
+//         <Field as="textarea" name="comments" />
+//         <button type="submit">Submit Form</button>
+//       </Form>
+//     </Formik>
+//   );
+// };
+
+// export default FeedbackForm;
+import css from "./App.module.css";
+import { useId, useState } from "react";
+
+const TestInput = () => {
+  const inputField = useId();
+
+  const [password, setPassword] = useState("");
+
+  const handleChange = (evt) => {
+    setPassword(() => {
+      const value = evt.target.value;
+      const passwordArray = value.split("");
+      for (let i = 0; i <= passwordArray.length - 1; i++) {
+        passwordArray[i] = "*";
+        console.log(passwordArray);
+      }
+
+      return passwordArray.join("");
+    });
   };
 
   return (
-    <Formik initialValues={initialValues} onSubmit={submitForm}>
-      <Form>
-        <Field type="text" name="username" />
-        <Field type="email" name="email" />
-        <Field as="textarea" name="comments" />
-        <button type="submit">Submit Form</button>
-      </Form>
-    </Formik>
+    <form className={css["form"]}>
+      <div className={css["containerForm"]}>
+        <label htmlFor={inputField}>Password</label>
+        <input
+          value={password}
+          onChange={handleChange}
+          className={css["input"]}
+          type="text"
+          placeholder="Enter password"
+          id={inputField}
+        />
+      </div>
+    </form>
   );
 };
 
-export default FeedbackForm;
+export default TestInput;

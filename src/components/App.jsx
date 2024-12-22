@@ -13,12 +13,12 @@
 
 // import { useState } from "react";
 
-import FeedbackForm from "./Example";
+import TestInput from "./Example";
 
 export default function App() {
   return (
     <>
-      <FeedbackForm />
+      <TestInput />
     </>
   );
 }
