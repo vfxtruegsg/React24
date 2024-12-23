@@ -635,3 +635,42 @@
 // };
 
 // export default FeedbackForm;
+
+// import { useEffect } from "react";
+// import axios from "axios";
+
+// export const ApiQuery = ({ data }) => {
+//   return (
+//     <div>
+//       <ul>
+//         {data.map(({ objectID, url, title }) => (
+//           <li key={objectID}>
+//             <a href={url} target="_blank" rel="noreferrer noopener">
+//               {title}
+//             </a>
+//           </li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// };
+
+// import { useRef } from "react";
+
+// export const Player = ({ source }) => {
+//   const playerRef = useRef();
+
+//   const play = () => playerRef.current.play();
+//   const pause = () => playerRef.current.pause();
+//   return (
+//     <div>
+//       <video ref={playerRef} src={source}>
+//         Sorry, your browser does not support embedded videos.
+//       </video>
+//       <div>
+//         <button onClick={play}>Play</button>
+//         <button onClick={pause}>Pause</button>
+//       </div>
+//     </div>
+//   );
+// };
