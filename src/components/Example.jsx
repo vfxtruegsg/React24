@@ -674,3 +674,22 @@
 //     </div>
 //   );
 // };
+
+// import { useState, useMemo, useEffect } from "react";
+
+// import { useToggle } from "../useToggle";
+
+// export const ModalWindow = () => {
+//   const { isOpen, open, close } = useToggle();
+//   return (
+//     <>
+//       <button onClick={open}>Open modal</button>
+//       {isOpen && (
+//         <div>
+//           <p>lalalalalalalalalalalalala</p>
+//           <button onClick={close}>Close Modal</button>
+//         </div>
+//       )}
+//     </>
+//   );
+// };

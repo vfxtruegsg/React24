@@ -93,19 +93,24 @@
 
 // export default App;
 
-import { useEffect, useState, useRef, forwardRef } from "react";
-// import { CustomButton } from "./Example";
+// import {
+//   useEffect,
+//   useState,
+//   useRef,
+//   forwardRef,
+//   createContext,
+//   useContext,
+// } from "react";
+// import { ModalWindow } from "./Example";
 
-const CustomButton = forwardRef((props, ref) => (
-  <button ref={ref}>{props.children}</button>
-));
+import { UserMenu } from "./UserMenu";
 
 const App = () => {
-  const btnRef = useRef();
-
-  useEffect(() => btnRef.current.focus(), []);
-
-  return <CustomButton ref={btnRef}>Button with forwarded ref</CustomButton>;
+  return (
+    <div>
+      <UserMenu />
+    </div>
+  );
 };
 
 export default App;
